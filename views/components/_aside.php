@@ -8,12 +8,6 @@
                 </a>
             </li>
             <li>
-                <a href="./profile.php" id="profile-a" class="flex items-center space-x-2 text-gray-700 hover:text-blue-500 focus:text-blue-500 focus:translate-x-2 p-2 rounded focus:outline-none hover:translate-x-2 transition-all transform">
-                    <span class="material-icons">person</span>
-                    <span>Profile</span>
-                </a>
-            </li>
-            <li>
                 <a href="./analytics.php" id="analytics-a" class="flex items-center space-x-2 text-gray-700 hover:text-blue-500 focus:outline-none focus:text-blue-500 focus:translate-x-2 p-2 rounded hover:translate-x-2 transition-all transform">
                     <span class="material-icons">analytics</span>
                     <span>Analytics</span>
@@ -29,6 +23,12 @@
                 <a href="./manageBudgets.php" id="budget-a" class="flex items-center space-x-2 text-gray-700 hover:text-blue-500 focus:outline-none focus:text-blue-500 focus:translate-x-2 p-2 rounded hover:translate-x-2 transition-all transform">
                     <span class="material-icons">account_balance_wallet</span>
                     <span>Manage Budget</span>
+                </a>
+            </li>
+            <li>
+                <a href="./profile.php" id="profile-a" class="flex items-center space-x-2 text-gray-700 hover:text-blue-500 focus:text-blue-500 focus:translate-x-2 p-2 rounded focus:outline-none hover:translate-x-2 transition-all transform">
+                    <span class="material-icons">person</span>
+                    <span>Profile</span>
                 </a>
             </li>
             <!-- Logout link -->
