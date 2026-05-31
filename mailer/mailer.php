@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->safeLoad();
+
 include('smtp/PHPMailerAutoload.php');
 
 echo smtp_mailer('email', 'subject', 'html');
@@ -8,14 +12,14 @@ function smtp_mailer($to, $subject, $msg)
 	$mail->IsSMTP();
 	$mail->SMTPAuth = true;
 	$mail->SMTPSecure = 'tls';
-	$mail->Host = "smtp.gmail.com";
-	$mail->Port = 587;
+	$mail->Host = $_ENV['MAIL_HOST'] ?? getenv('MAIL_HOST');
+	$mail->Port = $_ENV['MAIL_PORT'] ?? getenv('MAIL_PORT');
 	$mail->IsHTML(true);
 	$mail->CharSet = 'UTF-8';
 	//$mail->SMTPDebug = 2; 
-	$mail->Username = "fine.track.23@gmail.com";
-	$mail->Password = "jypuggasqpfuzbge";
-	$mail->SetFrom("fine.track.23@gmail.com");
+	$mail->Username = $_ENV['MAIL_USERNAME'] ?? getenv('MAIL_USERNAME');
+	$mail->Password = $_ENV['MAIL_PASSWORD'] ?? getenv('MAIL_PASSWORD');
+	$mail->SetFrom($_ENV['MAIL_FROM_ADDRESS'] ?? getenv('MAIL_FROM_ADDRESS'));
 	$mail->Subject = $subject;
 	$mail->Body = $msg;
 	$mail->AddAddress($to);

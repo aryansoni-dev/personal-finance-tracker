@@ -1,10 +1,15 @@
 <?php
 // config/database.php
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'your_db_username');
-define('DB_PASS', 'your_db_password');
-define('DB_NAME', 'your_db_name');
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->safeLoad();
+
+define('DB_HOST', $_ENV['DB_HOST'] ?? getenv('DB_HOST'));
+define('DB_USER', $_ENV['DB_USER'] ?? getenv('DB_USER'));
+define('DB_PASS', $_ENV['DB_PASS'] ?? getenv('DB_PASS'));
+define('DB_NAME', $_ENV['DB_NAME'] ?? getenv('DB_NAME'));
 
 function getDBConnection()
 {

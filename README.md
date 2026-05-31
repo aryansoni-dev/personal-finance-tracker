@@ -65,19 +65,28 @@ The unified relation schema consists of the following core tables:
    ```
    *(Be sure to replace `<source>` and `<destination>` with your stylesheets input and output paths)*
 
-5. **Database Configuration:**
-   - Create a new MySQL database.
-   - Run the SQL statements found in `DBschema.txt` to structure your tables.
-   - **⚠️ Important:** You must update your database access credentials. Open `config/db.php` and configure your specific MySQL username, password, and database host/name.
-   ```
-    define('DB_HOST', 'localhost');
-    define('DB_USER', 'your_db_username');
-    define('DB_PASS', 'your_db_password');
-    define('DB_NAME', 'your_db_name');
-   ```
+5. **Environment Configuration:**
+   - Copy the `.env.example` file to create a new `.env` file in the root directory:
+     ```bash
+     cp .env.example .env
+     ```
+   - Create a new MySQL database and run the SQL statements found in `DBschema.txt`.
+   - Update your database access credentials inside your new `.env` file!
+     ```
+        DB_HOST=localhost
+        DB_USER=root
+        DB_PASS=your_db_password
+        DB_NAME=finetrack
 
+        MAIL_HOST=smtp.gmail.com
+        MAIL_PORT=587
+        MAIL_USERNAME=your_email@gmail.com
+        MAIL_PASSWORD=your_app_password
+        MAIL_FROM_ADDRESS=your_email@gmail.com
+     ```
+   
 6. **Mail Server Configuration (Optional):**
-   - For password reset functionality, edit the SMTP/Mail credentials inside `mailer/mailer.php`.
+   - For password reset functionality, edit the SMTP/Mail credentials (`MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_FROM_ADDRESS`) inside your `.env` file.
 
 7. **Run the Application:**
    - Start your Apache and MySQL services.
